@@ -1,4 +1,3 @@
-
 export interface User {
     id: number;
     firstName: string;
@@ -11,7 +10,9 @@ export interface User {
     address: {
         postalCode: string;
     };
-    department: string;
+    company: {
+        department: string;
+    };
 }
 
 export interface TransformedData {

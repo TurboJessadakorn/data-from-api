@@ -4,7 +4,7 @@ export const transformData = (users: User[]): TransformedData => {
     const data: TransformedData = {};
 
     users.forEach(user => {
-        const department = user.department;
+        const department = user.company.department;
         if (!data[department]) {
             data[department] = {
                 male: 0,
@@ -28,7 +28,7 @@ export const transformData = (users: User[]): TransformedData => {
 
     // Calculate age ranges
     for (const department in data) {
-        const ages = users.filter(user => user.department === department).map(user => user.age);
+        const ages = users.filter(user => user.company.department === department).map(user => user.age);
         const minAge = Math.min(...ages);
         const maxAge = Math.max(...ages);
         data[department].ageRange = `${minAge}-${maxAge}`;
